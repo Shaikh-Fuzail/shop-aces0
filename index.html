@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Shop_ACE - Find the best deals on your favorite products at unbeatable prices." />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <title>Shop_ACE | Your Favorite Store</title>
+
+  <style>
+    /* ========== Base Reset ========== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #0077cc;
+      --primary-dark: #005fa3;
+      --accent: #ff6b6b;
+      --text: #333;
+      --white: #fff;
+      --bg: #f6f6f6;
+    }
+
+    body {
+      font-family: "Poppins", Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    /* ========== Header ========== */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 4rem;
+      background-color: var(--white);
+      border-bottom: 3px solid var(--accent);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav a {
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    /* ========== Hero Section ========== */
+    .hero {
+      background: linear-gradient(rgba(0, 119, 204, 0.5), rgba(255, 107, 107, 0.5)), 
+        url('https://via.placeholder.com/1200x400') center/cover no-repeat;
+      height: 400px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: var(--white);
+    }
+
+    .hero-content {
+      background: rgba(0, 0, 0, 0.55);
+      padding: 3rem;
+      border-radius: 12px;
+      max-width: 700px;
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+    }
+
+    .btn {
+      background-color: var(--accent);
+      color: var(--white);
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      display: inline-block;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .btn:hover {
+      background-color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    /* ========== Main Section ========== */
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+
+    .products {
+      text-align: center;
+    }
+
+    .products h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: var(--primary-dark);
+      position: relative;
+      display: inline-block;
+    }
+
+    .products h2::after {
+      content: "";
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: var(--accent);
+      margin: 0.5rem auto;
+      border-radius: 2px;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2rem;
+    }
+
+    .product-card {
+      background: var(--white);
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .product-card img {
+      height: 200px;
+      object-fit: contain;
+    }
+
+    .product-card h3 {
+      margin: 1rem 0 0.5rem;
+      font-size: 1.2rem;
+      text-align: center;
+    }
+
+    .product-card p {
+      font-weight: bold;
+      color: var(--primary);
+      margin-bottom: 0.75rem;
+    }
+
+    .product-card button {
+      background-color: var(--accent);
+      color: var(--white);
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .product-card button:hover {
+      background-color: var(--primary);
+    }
+
+    /* ========== Footer ========== */
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background-color: var(--primary);
+      color: var(--white);
+      box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.05);
+      font-size: 0.95rem;
+      margin-top: 2rem;
+    }
+
+    /* ========== Responsive Design ========== */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem 2rem;
+      }
+
+      .hero {
+        height: 300px;
+        padding: 1.5rem;
+      }
+
+      .hero-content {
+        padding: 2rem;
+      }
+
+      main {
+        padding: 2rem 1.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">Shop_ACE</div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Shop</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Find the Best Deals on Your Favorite Items</h1>
+      <p>Shop from a wide variety of products at unbeatable prices.</p>
+      <a href="#" class="btn">Shop Now</a>
+    </div>
+  </section>
+
+  <main>
+    <section class="products">
+      <h2>Featured Products</h2>
+      <div class="product-grid">
+
+        <div class="product-card">
+          <img src="https://i.pinimg.com/originals/dd/63/21/dd632189acb3443ba667031c52dd2403.jpg" alt="Leather Jacket">
+          <h3>Leather Jacket</h3>
+          <p>₹2,000</p>
+          <button>Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+          <img src="img2.png" alt="Shirt">
+          <h3>Shirt</h3>
+          <p>₹1,500</p>
+          <button>Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+          <img src="img3.png" alt="Jeans">
+          <h3>Jeans</h3>
+          <p>₹800</p>
+          <button>Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+          <img src="img4.png" alt="Shoes">
+          <h3>Shoes</h3>
+          <p>₹10,000</p>
+          <button>Add to Cart</button>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Shop_ACE. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
